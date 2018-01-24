@@ -2,17 +2,21 @@ package android.puliware.es.baseandroidmvp;
 
 import android.puliware.es.baseandroidmvp.common.ModelOps;
 import android.puliware.es.baseandroidmvp.common.PresenterOps;
-import android.puliware.es.baseandroidmvp.view.base.MvpPresenter;
+import android.puliware.es.baseandroidmvp.presenter.base.MvpPresenter;
 import android.puliware.es.baseandroidmvp.view.base.MvpView;
 
 import java.util.List;
 
 /**
- * Defines the interfaces for the application that are
+ * Only for refernence. If more than one view (activity / fragments) is wanted
+ * each one with its presenter and model/s is better split as in IViews, MVPPresenter, IModels.
+ * But it describes the BASIC interfaces for the application that are
  * required and provided by the layers in the Model-View-Presenter
  * (MVP) pattern.  This design ensures loose coupling between the
  * layers in the app's MVP-based architecture.
  */
+
+@Deprecated
 public interface MVP {
     /**
      * This interface defines the minimum API needed by the

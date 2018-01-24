@@ -1,14 +1,14 @@
 package android.puliware.es.baseandroidmvp.view;
 
 import android.os.Bundle;
-import android.puliware.es.baseandroidmvp.MVP;
 import android.puliware.es.baseandroidmvp.R;
 import android.puliware.es.baseandroidmvp.presenter.MainPresenter;
+import android.puliware.es.baseandroidmvp.view.base.IViews;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MVP.RequiredViewOps {
+public class MainActivity extends AppCompatActivity implements IViews.MainActivityRequiredViewOps {
 
     private MainPresenter presenter;
 
