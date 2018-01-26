@@ -7,7 +7,6 @@ import android.puliware.es.baseandroidmvp.presenter.ItemFragmentPresenter;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 import android.puliware.es.baseandroidmvp.view.dummy.DummyContent;
 import android.puliware.es.baseandroidmvp.view.dummy.DummyContent.DummyItem;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,13 +17,15 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import dagger.android.DaggerFragment;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ItemFragment extends Fragment implements IViews.ItemFragmentRequiredViewOps {
+public class ItemFragment extends DaggerFragment implements IViews.ItemFragmentRequiredViewOps {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
