@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements IViews.MainActivi
         presenter = new MainPresenter();
         presenter.onCreate(this);
         presenter.somefunction("example");
+        //TODO inject with dagger2 instead: https://www.raywenderlich.com/171327/dependency-injection-android-dagger-2
+        //https://google.github.io/dagger/android.html
     }
 
     @Override

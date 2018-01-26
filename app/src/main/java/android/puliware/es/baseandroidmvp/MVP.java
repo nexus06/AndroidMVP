@@ -8,7 +8,7 @@ import android.puliware.es.baseandroidmvp.view.base.MvpView;
 import java.util.List;
 
 /**
- * Only for refernence. If more than one view (activity / fragments) is wanted
+ * Only for reference. If more than one view (activity / fragments) is wanted
  * each one with its presenter and model/s is better split as in IViews, MVPPresenter, IModels.
  * But it describes the BASIC interfaces for the application that are
  * required and provided by the layers in the Model-View-Presenter
