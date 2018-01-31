@@ -18,15 +18,8 @@ import dagger.Provides;
 @Module
 public class MainActivityModule {
 
-
-
     @Provides
     MainPresenter provideMainPresenter(){
         return new MainPresenter();
-    }
-
-    @Provides
-    void initPresenter(IViews.MainActivityRequiredViewOps view){
-        new MainPresenter().onCreate(view);
     }
 }

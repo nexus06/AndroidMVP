@@ -3,6 +3,9 @@ package android.puliware.es.baseandroidmvp.model.base;
 import android.puliware.es.baseandroidmvp.common.ModelOps;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
 
+import io.reactivex.Observable;
+
+
 /**
  * Created by luipullop on 24/01/18.
  */
@@ -43,6 +46,8 @@ public interface IModels {
          * Provided function to presenter
          */
         void getLoveFromExternalSource(String parameter);
+
+        Observable<UserProfile> getProfile();
 
     }
 }

@@ -5,3 +5,16 @@
 - Don’t test getters and setters. Only test them if they provide more than the basic functionality. Is there any business logic inside your getter or setter? Go for it!
 - Don’t test methods which rely on the JVM or Android OS. If your SharedPreferences method doesn’t work it’s because you are doing something wrong and you are not calling the right methods.
 - You should test whatever is left. Obviously, there are some classes that are impossible to mock (e.g. Parcels), should they be left behind? I wouldn’t say so. If they cannot be mocked, don’t mock them: use real objects.
+
+# LIBRARIES ADDED:
+
+# AUTOVALUE:
+https://github.com/google/auto/blob/master/value/userguide/index.md
+You write an abstract class, and AutoValue implements it. See UserProfile in this project
+
+# RxAndroid
+One of the most common operations when dealing with asynchronous tasks on Android is to
+observe the task's result or outcome on the main thread. Using vanilla Android, this would typically be accomplished
+with an AsyncTask.
+With RxJava instead you would declare your Observable to be observed on the main thread:
+See ItemFragmentModel in this project
