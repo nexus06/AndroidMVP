@@ -1,0 +1,7 @@
+
+Taking that into account: What to test?
+
+Don’t test Activities nor Fragments! They are tested by the automated UI testing framework.
+Don’t test getters and setters. Only test them if they provide more than the basic functionality. Is there any business logic inside your getter or setter? Go for it!
+Don’t test methods which rely on the JVM or Android OS. If your SharedPreferences method doesn’t work it’s because you are doing something wrong and you are not calling the right methods.
+You should test whatever is left. Obviously, there are some classes that are impossible to mock (e.g. Parcels), should they be left behind? I wouldn’t say so. If they cannot be mocked, don’t mock them: use real objects.
