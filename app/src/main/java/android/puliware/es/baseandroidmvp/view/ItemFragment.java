@@ -3,6 +3,7 @@ package android.puliware.es.baseandroidmvp.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.puliware.es.baseandroidmvp.R;
+import android.puliware.es.baseandroidmvp.model.base.UserProfile;
 import android.puliware.es.baseandroidmvp.presenter.ItemFragmentPresenter;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 import android.puliware.es.baseandroidmvp.view.dummy.DummyContent;
@@ -110,6 +111,11 @@ public class ItemFragment extends DaggerFragment implements IViews.ItemFragmentR
     @Override
     public void showErrorOnLove() {
         Toast.makeText(getActivity(), "no love no future", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void displayResult(UserProfile userProfile) {
+        //display result in a view
     }
 
     /**

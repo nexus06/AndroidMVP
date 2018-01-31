@@ -1,5 +1,7 @@
 package android.puliware.es.baseandroidmvp.view.base;
 
+import android.puliware.es.baseandroidmvp.model.base.UserProfile;
+
 import java.util.List;
 
 /**
@@ -39,5 +41,6 @@ public interface IViews {
 
         void showErrorOnLove();
 
+        void displayResult(UserProfile userProfile);
     }
 }

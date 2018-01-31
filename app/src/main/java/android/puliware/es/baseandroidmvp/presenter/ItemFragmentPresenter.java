@@ -53,4 +53,13 @@ public class ItemFragmentPresenter extends BasePresenter<IViews.ItemFragmentRequ
     public void showProgress() {
         //TODO call to some method in the view layer bla bla bla
     }
+
+    @Override
+    public void fetchUserAndDisplay() {
+        // Not covered by this example:
+        // You should handle the subscription
+        // You should also check if view is not null
+        // You should also handle the onError
+        model.getProfile().subscribe(userProfile -> getMvpView().displayResult(userProfile));
+    }
 }

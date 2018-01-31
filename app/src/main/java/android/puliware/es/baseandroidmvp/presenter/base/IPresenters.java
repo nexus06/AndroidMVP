@@ -46,6 +46,8 @@ public interface IPresenters {
          * some function provided to other layers
          */
         boolean giveMeLove(String acronym);
+
+        void fetchUserAndDisplay();
     }
 
     /**
