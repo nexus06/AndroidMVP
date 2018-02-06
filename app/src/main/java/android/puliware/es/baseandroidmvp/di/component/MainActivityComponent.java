@@ -1,5 +1,7 @@
 package android.puliware.es.baseandroidmvp.di.component;
 
+import android.puliware.es.baseandroidmvp.di.module.FragmentBuilder;
+import android.puliware.es.baseandroidmvp.di.module.ItemFragmentModule;
 import android.puliware.es.baseandroidmvp.di.module.MainActivityModule;
 import android.puliware.es.baseandroidmvp.view.MainActivity;
 
@@ -15,7 +17,7 @@ import dagger.android.AndroidInjector;
  */
 
 
-@Subcomponent(modules = MainActivityModule.class)
+@Subcomponent(modules = {MainActivityModule.class, FragmentBuilder.class})
 public interface MainActivityComponent extends AndroidInjector<MainActivity> {
     @Subcomponent.Builder
     abstract class Builder extends AndroidInjector.Builder<MainActivity>{}

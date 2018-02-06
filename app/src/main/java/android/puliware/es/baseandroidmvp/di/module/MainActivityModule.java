@@ -1,6 +1,7 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
 import android.puliware.es.baseandroidmvp.presenter.MainPresenter;
+import android.puliware.es.baseandroidmvp.view.MainActivity;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 
 import dagger.Module;
@@ -17,6 +18,11 @@ import dagger.Provides;
 
 @Module
 public class MainActivityModule {
+
+    @Provides
+    IViews.MainActivityRequiredViewOps provideRequiredOps(MainActivity mainActivity){
+       return mainActivity;
+    }
 
     @Provides
     MainPresenter provideMainPresenter(){
