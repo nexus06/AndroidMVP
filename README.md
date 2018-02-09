@@ -21,13 +21,13 @@ Read more about them here: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%8
 
 # Branches 
 
-Checkout from branches:
+Each branch is pretendended as good start point for your own project depending on the complexity you want. Checkout from branches:
 
-- Master: is the basic project exposing basic MVP interfaces. Perfect to start coding in a nuw project
+- Master: is the basic project exposing basic MVP interfaces. Perfect to start coding in a new project
 
-- Dagger: Includes latest Dagger 2 DI basic setup
+- Dagger: Includes Dagger2 library, and initial Dagger 2 DI basic setup. 
 
-- Mockito: Includes testable UNIT tests and more interesting libraries: Autovalue, Android java Rx....
+- MVPTesting: Continues Dagger2 setup and start point for testable UNIT. Also includes more interesting libraries: Autovalue and Android java Rx
 
 
 # About basic master branch.
