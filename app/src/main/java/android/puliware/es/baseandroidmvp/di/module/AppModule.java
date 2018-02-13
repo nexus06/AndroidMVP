@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import javax.inject.Singleton;
+
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -22,6 +24,7 @@ public abstract class AppModule {
     abstract Context provideContext(Application application);
 
     @Provides
+    @Singleton
     static SharedPreferences preferences(Application application) {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }

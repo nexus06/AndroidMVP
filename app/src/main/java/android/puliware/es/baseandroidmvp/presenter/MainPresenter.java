@@ -1,5 +1,6 @@
 package android.puliware.es.baseandroidmvp.presenter;
 
+import android.content.SharedPreferences;
 import android.puliware.es.baseandroidmvp.model.MainModel;
 import android.puliware.es.baseandroidmvp.presenter.base.BasePresenter;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
@@ -15,21 +16,24 @@ import javax.inject.Inject;
 
 public class MainPresenter extends BasePresenter<IViews.MainActivityRequiredViewOps> implements IPresenters.MainRequiredPresenterOps, IPresenters.MainProvidedPresenterOps{
 
-    private MainModel model;
+
+    @Inject MainModel model;
+
+    @Inject
+    SharedPreferences mySharedPrefs;
 
 
     @Override
     public void onCreate(IViews.MainActivityRequiredViewOps view) {
         super.attachView(view);
-        model = new MainModel();
-        model.onCreate(this);
+
     }
 
     @Inject
-    public MainPresenter(IViews.MainActivityRequiredViewOps view, MainModel model) {
+    public MainPresenter(IViews.MainActivityRequiredViewOps view, SharedPreferences preferences) {
+        model = new MainModel(this);
         super.attachView(view);
-        this.model = model;
-        this.model.onCreate(this);
+        preferences.edit().putBoolean("dsads",true).commit();
     }
 
     @Override

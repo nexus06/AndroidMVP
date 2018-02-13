@@ -1,10 +1,10 @@
 package android.puliware.es.baseandroidmvp.model;
 
+import android.content.SharedPreferences;
 import android.puliware.es.baseandroidmvp.model.base.BaseModel;
 import android.puliware.es.baseandroidmvp.model.base.IModels;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.inject.Inject;
@@ -17,8 +17,17 @@ import javax.inject.Inject;
 public class MainModel extends BaseModel<IPresenters.MainRequiredPresenterOps> implements IModels.MainProvidedModelOps{
 
 
+    /*@Inject
+    public MainModel(IPresenters.MainRequiredPresenterOps presenterOps) {
+        attachPresenter(presenterOps);
+    }*/
+
+    //@Inject SharedPreferences mySharedPrefs;
+
     @Inject
-    public MainModel() {
+    public MainModel(IPresenters.MainRequiredPresenterOps presenterOps) {
+        attachPresenter(presenterOps);
+
     }
 
     @Override
@@ -34,6 +43,7 @@ public class MainModel extends BaseModel<IPresenters.MainRequiredPresenterOps> i
     @Override
     public void getSomeInformation(String parameter) {
         //whatever
+       // mySharedPrefs.edit().putBoolean("rere",true).apply();
         getPresenter().onResult(Arrays.asList("Buenos Aires", "Córdoba", "La Plata"));
     }
 }
