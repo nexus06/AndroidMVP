@@ -1,31 +1,30 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
+import android.puliware.es.baseandroidmvp.model.MainModel;
 import android.puliware.es.baseandroidmvp.presenter.MainPresenter;
 import android.puliware.es.baseandroidmvp.view.MainActivity;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
+import dagger.android.ContributesAndroidInjector;
 
 /**
- * Created by luipullop on 26/01/18.
- * This module provides main activity related instances
- * (eg. MainActivityPresenter).
- * Did you see provideMainView() method takes MainActivity as parameter? Yes.
- * We create our MainActivityComponent with our <MainActivity> class.
- * So dagger will attach our activity to it’s graph. So we can use it because it is on the graph.
+ * About Binds
+ * This annotation provides a replacement
+ * of @Provides methods which simply return the injected parameter. Let’s take an example,
+ * https://proandroiddev.com/dagger-2-annotations-binds-contributesandroidinjector-a09e6a57758f
  */
 
-@Module
-public class MainActivityModule {
+@Module abstract class MainActivityModule {
 
     @Provides
-    IViews.MainActivityRequiredViewOps provideRequiredOps(MainActivity mainActivity){
-       return mainActivity;
+    static MainPresenter provideMainPresenter(IViews.MainActivityRequiredViewOps view, MainModel model) {
+        return new MainPresenter(view, model);
     }
 
-    @Provides
-    MainPresenter provideMainPresenter(){
-        return new MainPresenter();
-    }
+    @Binds
+    abstract IViews.MainActivityRequiredViewOps provideRequiredOps(MainActivity mainActivity);
+
 }

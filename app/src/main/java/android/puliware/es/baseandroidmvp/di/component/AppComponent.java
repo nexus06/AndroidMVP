@@ -15,6 +15,8 @@ import dagger.android.support.DaggerApplication;
 
 /**
  * Created by luipullop on 26/01/18.
+ * Root of our dagger graph
+ * Android apps have one application class. That is why we have one application component.
  * This component is responsible for providing application scope instances (eg. OkHttp, Database, SharedPrefs.).
  * This Component is root of our dagger graph. Application component is providing 3 module in our app.
  - AndroidSupportInjectionModule : We didn’t create this. It is an internal class in Dagger 2.10. Provides our

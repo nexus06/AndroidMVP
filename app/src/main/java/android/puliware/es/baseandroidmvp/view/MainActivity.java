@@ -7,12 +7,15 @@ import android.puliware.es.baseandroidmvp.view.base.IViews;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjection;
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class MainActivity extends DaggerAppCompatActivity implements IViews.MainActivityRequiredViewOps {
 
-    private MainPresenter presenter;
+    @Inject
+    MainPresenter presenter;
 
 
     @Override
@@ -20,8 +23,6 @@ public class MainActivity extends DaggerAppCompatActivity implements IViews.Main
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AndroidInjection.inject(this);
-        presenter = new MainPresenter();
-        presenter.onCreate(this);
         presenter.somefunction("example");
         //https://google.github.io/dagger/android.html
         //https://www.raywenderlich.com/171327/dependency-injection-android-dagger-2

@@ -7,6 +7,8 @@ import android.puliware.es.baseandroidmvp.view.base.IViews;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by luipullop on 23/01/18.
  */
@@ -20,6 +22,12 @@ public class MainPresenter extends BasePresenter<IViews.MainActivityRequiredView
     public void onCreate(IViews.MainActivityRequiredViewOps view) {
         super.attachView(view);
         model = new MainModel();
+        model.onCreate(this);
+    }
+
+    @Inject
+    public MainPresenter(IViews.MainActivityRequiredViewOps view, MainModel model) {
+        super.attachView(view);
         model.onCreate(this);
     }
 
