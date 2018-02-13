@@ -28,7 +28,8 @@ public class MainPresenter extends BasePresenter<IViews.MainActivityRequiredView
     @Inject
     public MainPresenter(IViews.MainActivityRequiredViewOps view, MainModel model) {
         super.attachView(view);
-        model.onCreate(this);
+        this.model = model;
+        this.model.onCreate(this);
     }
 
     @Override

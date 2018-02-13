@@ -4,6 +4,9 @@ import android.puliware.es.baseandroidmvp.model.base.BaseModel;
 import android.puliware.es.baseandroidmvp.model.base.IModels;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 
@@ -31,6 +34,6 @@ public class MainModel extends BaseModel<IPresenters.MainRequiredPresenterOps> i
     @Override
     public void getSomeInformation(String parameter) {
         //whatever
-        getPresenter().onResult(null);
+        getPresenter().onResult(Arrays.asList("Buenos Aires", "Córdoba", "La Plata"));
     }
 }

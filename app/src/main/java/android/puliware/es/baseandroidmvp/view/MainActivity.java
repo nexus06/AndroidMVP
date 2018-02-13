@@ -1,9 +1,11 @@
 package android.puliware.es.baseandroidmvp.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.puliware.es.baseandroidmvp.R;
 import android.puliware.es.baseandroidmvp.presenter.MainPresenter;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,6 +18,9 @@ public class MainActivity extends DaggerAppCompatActivity implements IViews.Main
 
     @Inject
     MainPresenter presenter;
+
+    @Inject
+    SharedPreferences preferences;
 
 
     @Override
@@ -32,6 +37,6 @@ public class MainActivity extends DaggerAppCompatActivity implements IViews.Main
 
     @Override
     public void displayResults(List<String> results) {
-        //TODO hook method called from presenter you must implement
+        Toast.makeText(this, "testeando", Toast.LENGTH_LONG).show();
     }
 }
