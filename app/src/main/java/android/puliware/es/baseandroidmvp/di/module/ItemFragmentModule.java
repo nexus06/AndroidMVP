@@ -1,6 +1,13 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.puliware.es.baseandroidmvp.di.PerActivity;
+import android.puliware.es.baseandroidmvp.di.PerFragment;
 import android.puliware.es.baseandroidmvp.presenter.ItemFragmentPresenter;
+import android.puliware.es.baseandroidmvp.utils.PerActivityUtil;
+import android.puliware.es.baseandroidmvp.utils.PerFragmentUtil;
+import android.puliware.es.baseandroidmvp.utils.SingletonUtil;
 import android.puliware.es.baseandroidmvp.view.ItemFragment;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 
@@ -19,12 +26,19 @@ import dagger.Provides;
 @Module
 public abstract class ItemFragmentModule {
 
+    @Binds
+    @PerFragment
+    abstract Fragment fragment(ItemFragment itemFragment);
 
-    @Provides
-    static ItemFragmentPresenter provideItemFragmentPresenter() {
-        return new ItemFragmentPresenter();
-    }
 
     @Binds
+    @PerFragment
     abstract IViews.ItemFragmentRequiredViewOps provideRequiredOps(ItemFragment itemFragment);
+
+    @Provides
+    @PerFragment
+    static ItemFragmentPresenter provideItemFragmentPresenter(IViews.ItemFragmentRequiredViewOps view, SingletonUtil singletonUtil,
+                                                              PerActivityUtil activityUtil, PerFragmentUtil fragmentUtil) {
+        return new ItemFragmentPresenter(view, singletonUtil, activityUtil, fragmentUtil);
+    }
 }

@@ -14,6 +14,10 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 import dagger.android.support.DaggerAppCompatActivity;
 
+/*The top-most level
+injection occurs in onCreate
+See https://proandroiddev.com/how-to-android-dagger-2-10-2-11-butterknife-mvp-part-1-eb0f6b970fd
+*/
 public class MainActivity extends DaggerAppCompatActivity implements IViews.MainActivityRequiredViewOps {
 
     @Inject

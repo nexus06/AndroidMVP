@@ -1,5 +1,6 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
+import android.puliware.es.baseandroidmvp.di.PerFragment;
 import android.puliware.es.baseandroidmvp.view.ItemFragment;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -11,6 +12,7 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class FragmentBuilder {
 
+    @PerFragment
     @ContributesAndroidInjector(modules = ItemFragmentModule.class)
     abstract ItemFragment bindItemFragment();
 

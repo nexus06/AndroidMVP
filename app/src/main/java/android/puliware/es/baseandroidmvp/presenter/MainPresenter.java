@@ -17,7 +17,8 @@ import javax.inject.Inject;
 public class MainPresenter extends BasePresenter<IViews.MainActivityRequiredViewOps> implements IPresenters.MainRequiredPresenterOps, IPresenters.MainProvidedPresenterOps{
 
 
-    @Inject MainModel model;
+    @Inject
+    MainModel model;
 
     @Inject
     SharedPreferences mySharedPrefs;
@@ -26,7 +27,6 @@ public class MainPresenter extends BasePresenter<IViews.MainActivityRequiredView
     @Override
     public void onCreate(IViews.MainActivityRequiredViewOps view) {
         super.attachView(view);
-
     }
 
     @Inject

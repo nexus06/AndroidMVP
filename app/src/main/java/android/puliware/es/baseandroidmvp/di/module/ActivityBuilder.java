@@ -1,5 +1,7 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
+import android.puliware.es.baseandroidmvp.di.PerActivity;
+import android.puliware.es.baseandroidmvp.di.PerFragment;
 import android.puliware.es.baseandroidmvp.view.MainActivity;
 
 import dagger.Module;
@@ -19,6 +21,7 @@ public abstract class ActivityBuilder {
     @ActivityKey(DetailActivity.class)
     abstract AndroidInjector.Factory<? extends Activity> bindDetailActivity(DetailActivityComponent.Builder builder);*/
 
+   @PerActivity
     @ContributesAndroidInjector(modules ={ MainActivityModule.class, FragmentBuilder.class })
     abstract MainActivity bindMainActivity();
 

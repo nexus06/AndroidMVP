@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dagger.android.DaggerFragment;
 
 /**
@@ -25,6 +27,8 @@ import dagger.android.DaggerFragment;
  * <p/>
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
+ *
+ * The injection occurs in onAttach before the call to super
  */
 public class ItemFragment extends DaggerFragment implements IViews.ItemFragmentRequiredViewOps {
 
@@ -34,7 +38,9 @@ public class ItemFragment extends DaggerFragment implements IViews.ItemFragmentR
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ItemFragmentPresenter mPresenter;
+
+    @Inject ItemFragmentPresenter mPresenter;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,19 +62,16 @@ public class ItemFragment extends DaggerFragment implements IViews.ItemFragmentR
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-        mPresenter = new ItemFragmentPresenter();
-
-        mPresenter.onCreate(this);
 
         // Set the adapter
         if (view instanceof RecyclerView) {

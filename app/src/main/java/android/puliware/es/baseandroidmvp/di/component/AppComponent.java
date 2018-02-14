@@ -27,6 +27,9 @@ import dagger.android.support.DaggerApplication;
  - AppModule: We provide retrofit, okhttp, persistence db, shared pref etc here.
  There is an important detail here.
  We have to add our subcomponents to AppModule. So our dagger graph will understand that.
+
+ The AppComponent is annotated with @Component and @Singleton to indicate that its modules
+ (AppModule) are to provide @Singleton scoped or unscoped dependencies.
  */
 
 

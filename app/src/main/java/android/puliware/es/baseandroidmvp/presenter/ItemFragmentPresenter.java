@@ -3,9 +3,14 @@ package android.puliware.es.baseandroidmvp.presenter;
 import android.puliware.es.baseandroidmvp.model.ItemFragmentModel;
 import android.puliware.es.baseandroidmvp.presenter.base.BasePresenter;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
+import android.puliware.es.baseandroidmvp.utils.PerActivityUtil;
+import android.puliware.es.baseandroidmvp.utils.PerFragmentUtil;
+import android.puliware.es.baseandroidmvp.utils.SingletonUtil;
 import android.puliware.es.baseandroidmvp.view.base.IViews;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by luipullop on 23/01/18.
@@ -16,7 +21,19 @@ public class ItemFragmentPresenter extends BasePresenter<IViews.ItemFragmentRequ
         IPresenters.ItemFragmentRequiredPresenterOps{
 
     private ItemFragmentModel model;
+    private final SingletonUtil singletonUtil;
+    private final PerActivityUtil perActivityUtil;
+    private final PerFragmentUtil perFragmentUtil;
 
+    @Inject
+    public ItemFragmentPresenter(IViews.ItemFragmentRequiredViewOps requiredViewOps, SingletonUtil singletonUtil,
+                          PerActivityUtil perActivityUtil, PerFragmentUtil perFragmentUtil) {
+
+        this.singletonUtil = singletonUtil;
+        this.perActivityUtil = perActivityUtil;
+        this.perFragmentUtil = perFragmentUtil;
+        onCreate(requiredViewOps);
+    }
 
     @Override
     public void onCreate(IViews.ItemFragmentRequiredViewOps view) {

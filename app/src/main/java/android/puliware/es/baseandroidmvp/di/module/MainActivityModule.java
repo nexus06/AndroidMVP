@@ -1,6 +1,8 @@
 package android.puliware.es.baseandroidmvp.di.module;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
+import android.puliware.es.baseandroidmvp.di.PerActivity;
 import android.puliware.es.baseandroidmvp.model.MainModel;
 import android.puliware.es.baseandroidmvp.presenter.MainPresenter;
 import android.puliware.es.baseandroidmvp.presenter.base.IPresenters;
@@ -21,19 +23,27 @@ import dagger.Provides;
 @Module
 abstract class MainActivityModule {
 
+    @Binds
+    @PerActivity
+    abstract Activity activity(MainActivity mainActivity);
+
     @Provides
+    @PerActivity
     static MainPresenter provideMainPresenter(IViews.MainActivityRequiredViewOps view, SharedPreferences sharedPreferences) {
         return new MainPresenter(view, sharedPreferences);
     }
 
     @Provides
+    @PerActivity
     static MainModel provideMainModel(IPresenters.MainRequiredPresenterOps presenterOps) {
         return new MainModel(presenterOps);
     }
 
     @Binds
+    @PerActivity
     abstract IViews.MainActivityRequiredViewOps provideRequiredViewOps(MainActivity mainActivity);
 
     @Binds
+    @PerActivity
     abstract IPresenters.MainRequiredPresenterOps provideRequiredPresenterOps(MainPresenter mainPresenter);
 }
